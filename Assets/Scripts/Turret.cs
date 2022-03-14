@@ -28,6 +28,10 @@ namespace SpaceShooter
             {
                 m_RefireTimer -= Time.deltaTime;
             }
+            else if(Mode == TurretMode.Auto)
+            {
+                Fire();
+            }
         }
 
         public void Fire()
@@ -36,12 +40,14 @@ namespace SpaceShooter
 
             if (m_RefireTimer > 0) return;
 
-            if (m_Ship.DrawEnergy(m_TurretProperties.EnergyUsage) == false)
-                return;
+            if(m_Ship)
+            {
+                if (m_Ship.DrawEnergy(m_TurretProperties.EnergyUsage) == false)
+                    return;
 
-            if (m_Ship.DrawAmmo(m_TurretProperties.AmmoUsage) == false)
-                return;
-
+                if (m_Ship.DrawAmmo(m_TurretProperties.AmmoUsage) == false)
+                    return;
+            }
             
             Projectile projectile = Instantiate(m_TurretProperties.ProjectilePrefab).GetComponent<Projectile>();
             projectile.transform.position = transform.position;

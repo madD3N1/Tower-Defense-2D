@@ -12,7 +12,7 @@ namespace SpaceShooter
 
         [SerializeField] private int m_Damage;
 
-        [SerializeField] private ImpactEffect m_ImpactEffectPrefab;
+        //[SerializeField] private ImpactEffect m_ImpactEffectPrefab;
 
         private float m_Timer;
 
@@ -35,10 +35,10 @@ namespace SpaceShooter
                 {
                     dest.ApplyDamage(m_Damage);
 
-                    if(m_Parent == Player.Instance.ActiveShip)
-                    {
-                        Player.Instance.AddScore(dest.ScoreValue);
-                    }
+                    //if(m_Parent == Player.Instance.ActiveShip)
+                    //{
+                    //    Player.Instance.AddScore(dest.ScoreValue);
+                    //}
                 }
 
                 OnProjectileLifeEnd(hit.collider, hit.point);
@@ -58,8 +58,8 @@ namespace SpaceShooter
 
         private void OnProjectileLifeEnd(Collider2D col, Vector2 pos)
         {
-            var impactEffect = Instantiate(m_ImpactEffectPrefab);
-            impactEffect.transform.position = pos;
+            //var impactEffect = Instantiate(m_ImpactEffectPrefab);
+            //impactEffect.transform.position = pos;
 
             Destroy(gameObject);
         }
