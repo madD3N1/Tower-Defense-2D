@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TowerDefense;
 
 namespace SpaceShooter
 {
@@ -76,7 +77,7 @@ namespace SpaceShooter
         }
 
         #endregion
-        
+
         /// <summary>
         /// Метод добавления сил кораблю для движения.
         /// </summary>
@@ -204,5 +205,11 @@ namespace SpaceShooter
             }
         }
         */
+
+        new public void Use(EnemyAsset asset)
+        {
+            m_MaxLinearVelocity = asset.moveSpeed;
+            base.Use(asset);
+        }
     }
 }

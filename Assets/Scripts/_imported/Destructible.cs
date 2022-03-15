@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using TowerDefense;
 
 namespace SpaceShooter
 {
@@ -105,5 +106,10 @@ namespace SpaceShooter
 
         #endregion
 
+        protected void Use(EnemyAsset asset)
+        {
+            m_HitPoints = asset.hp;
+            m_ScoreValue = asset.score;
+        }
     }
 }

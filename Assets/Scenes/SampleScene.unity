@@ -915,16 +915,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1251112487}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b737384aad882e4c9fbfa876c5762d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 9848488c0decc8b4e9be7bd6056e0556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Path: {fileID: 1437096195}
-  m_EntityPrefabs:
-  - {fileID: -840838796854745875, guid: 7a1fdc0d6b29ce04c9f3a839edc3a619, type: 3}
   m_Area: {fileID: 1062376910}
   m_SpawnMode: 1
   m_NumSpawns: 1
   m_RespawnTime: 3
+  m_EnemyPrefab: {fileID: 3144956876751608066, guid: 7a1fdc0d6b29ce04c9f3a839edc3a619, type: 3}
+  m_Path: {fileID: 1437096195}
+  m_EnemyAssets:
+  - {fileID: 11400000, guid: 7f69f184040e46841a3358c8f9913ceb, type: 2}
+  - {fileID: 11400000, guid: e6051c6dd4594d84e8a4d3f81f240d6c, type: 2}
+  - {fileID: 11400000, guid: 5a71b75322aa71d4ca681f34cbfde432, type: 2}
 --- !u!4 &1251112489
 Transform:
   m_ObjectHideFlags: 0

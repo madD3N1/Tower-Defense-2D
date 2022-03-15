@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3543296847062947255}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.045, y: -0.254, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 3543296848752324491}
@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 8404086655714605777}
   - component: {fileID: -840838796854745875}
   - component: {fileID: 9012539389102737479}
+  - component: {fileID: 3144956876751608066}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -142,7 +143,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3543296848752324490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.453942, y: 1.1462414, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3543296847062947256}
@@ -218,6 +219,18 @@ MonoBehaviour:
   m_MaxDistanceFindTarget: 0
   m_ShootDelay: 0
   m_EvadeRayLength: 0
+--- !u!114 &3144956876751608066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3543296848752324490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75af44f7284774e4ba32eb8d1aacfa00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4626054611409625222
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,7 +256,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4626054611409625222}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: -0.138, z: 0}
+  m_LocalPosition: {x: 0.045, y: -0.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3543296848752324491}
@@ -259,9 +272,9 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.35
+  m_Radius: 0.36

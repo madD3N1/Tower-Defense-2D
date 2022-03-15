@@ -142,7 +142,6 @@ namespace SpaceShooter
             }
         }
 
-        //TODO: сделать переопределяемый метод, в котром будем уничтожаться объект (это нужно в DPAtrolController)
         protected virtual void MoveNextPosition()
         {
             if (m_IsForward == true)
