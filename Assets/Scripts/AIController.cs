@@ -20,6 +20,8 @@ namespace SpaceShooter
 
         private bool m_IsForward;
 
+        public bool IsForward => m_IsForward;
+
         [Range(0.0f, 1.0f)]
         [SerializeField] private float m_NavigationLinear;
 
@@ -77,10 +79,10 @@ namespace SpaceShooter
         private void UpdateBehaviourPatrol()
         {
             ActionFindNewMovePosition();
-            ActionAvadeCollision();
+            //ActionAvadeCollision();
             ActionControlShip();
-            ActionFindNewAttackTarget();
-            ActionFire();      
+            //ActionFindNewAttackTarget();
+            //ActionFire();      
         }
 
         private void ActionFindNewMovePosition()
@@ -96,57 +98,63 @@ namespace SpaceShooter
                     if (m_PatrolPoints != null)
                     {
                         bool isInsidePatrolZone = (m_PatrolPoints[m_IndexCurrentPatrolPoint].transform.position - transform.position).sqrMagnitude
-                                                    < m_PatrolPoints[m_IndexCurrentPatrolPoint].Radius * m_PatrolPoints[m_IndexCurrentPatrolPoint].Radius;
+                                                        < m_PatrolPoints[m_IndexCurrentPatrolPoint].Radius * m_PatrolPoints[m_IndexCurrentPatrolPoint].Radius;
 
                         if (isInsidePatrolZone == true)
                         {
-                            if (m_PatrolPoints.Count == 1)
-                            {
-                                if (m_RandomizeDirectionTimer.IsFinished == true)
-                                {
-                                    Vector2 newPoint = Random.onUnitSphere * m_PatrolPoints[m_IndexCurrentPatrolPoint].Radius + m_PatrolPoints[m_IndexCurrentPatrolPoint].transform.position;
+                            //if (m_PatrolPoints.Count == 1)
+                            //{
+                            //    if (m_RandomizeDirectionTimer.IsFinished == true)
+                            //    {
+                            //        Vector2 newPoint = Random.onUnitSphere * m_PatrolPoints[m_IndexCurrentPatrolPoint].Radius + m_PatrolPoints[m_IndexCurrentPatrolPoint].transform.position;
 
-                                    m_MovePosition = newPoint;
+                            //        m_MovePosition = newPoint;
 
-                                    m_RandomizeDirectionTimer.Start(m_RandomSelectMovePointTime);
+                            //        m_RandomizeDirectionTimer.Start(m_RandomSelectMovePointTime);
 
-                                    return;
-                                }
-                                else
-                                    return;
-                            }
+                            //        return;
+                            //    }
+                            //    else
+                            //        return;
+                            //}
 
-                            if (m_IsForward == true)
-                            {
-                                if (m_IndexCurrentPatrolPoint == m_PatrolPoints.Count - 1)
-                                {
-                                    m_IsForward = false;
-                                    m_IndexCurrentPatrolPoint--;
-                                }
-                                else
-                                {
-                                    m_IndexCurrentPatrolPoint++;
-                                }
-                            }
-                            else
-                            {
-                                if (m_IndexCurrentPatrolPoint == 0)
-                                {
-                                    m_IsForward = true;
-                                    m_IndexCurrentPatrolPoint++;
-                                }
-                                else
-                                {
-                                    m_IndexCurrentPatrolPoint--;
-                                }
-                            }
+                            MoveNextPosition();
 
+                            //else
+                            //{
+                            //    if (m_IndexCurrentPatrolPoint == 0)
+                            //    {
+                            //        m_IsForward = true;
+                            //        m_IndexCurrentPatrolPoint++;
+                            //    }
+                            //    else
+                            //    {
+                            //        m_IndexCurrentPatrolPoint--;
+                            //    }
+                            //}
                         }
                         else
                         {
                             m_MovePosition = m_PatrolPoints[m_IndexCurrentPatrolPoint].transform.position;
                         }
                     }
+                }
+            }
+        }
+
+        //TODO: сделать переопределяемый метод, в котром будем уничтожаться объект (это нужно в DPAtrolController)
+        protected virtual void MoveNextPosition()
+        {
+            if (m_IsForward == true)
+            {
+                if (m_IndexCurrentPatrolPoint == m_PatrolPoints.Count - 1)
+                {
+                    m_IsForward = false;
+                    //m_IndexCurrentPatrolPoint--;
+                }
+                else
+                {
+                    m_IndexCurrentPatrolPoint++;
                 }
             }
         }
@@ -252,7 +260,7 @@ namespace SpaceShooter
 
         private void OnDeath()
         {
-            Player.Instance.AddKill();
+            //Player.Instance.AddKill();
         }
 
         #region Timers
@@ -271,12 +279,12 @@ namespace SpaceShooter
             m_FindNewTargetTimer.RemoveTime(Time.deltaTime);
         }
 
-        public void SetPatrolBehaviour(AIPointPatrol point)
+        #endregion
+
+        public void SetPatrolBehaviour(List<AIPointPatrol> points)
         {
             m_AIBehaviour = AIBehaviour.Patrol;
-            m_PatrolPoints[m_IndexCurrentPatrolPoint] = point;
+            m_PatrolPoints = points;
         }
-
-        #endregion
     }
 }
