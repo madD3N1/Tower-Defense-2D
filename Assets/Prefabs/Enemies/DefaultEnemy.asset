@@ -17,4 +17,5 @@ MonoBehaviour:
   animations: {fileID: 9100000, guid: b25bd41a1d03a8f4baeee21e891c10a1, type: 2}
   moveSpeed: 1
   hp: 4
-  score: 1
+  score: 5
+  radius: 0.35

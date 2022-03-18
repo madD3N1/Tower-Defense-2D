@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc362c14859b4bc44b6bb492d7c58e48, type: 3}
-  m_Name: New Turret Properties
+  m_Script: {fileID: 11500000, guid: 14c0fe2029037024889da0722ebd49c6, type: 3}
+  m_Name: HeavyEnemy
   m_EditorClassIdentifier: 
-  m_Mode: 0
-  m_ProjectilePrefab: {fileID: 1818383574736899652, guid: 7ce65d54dc7611e48962276d16793320, type: 3}
-  m_RateOfFire: 1
-  m_EnergyUsage: 0
-  m_AmmoUsage: 0
+  color: {r: 1, g: 1, b: 1, a: 1}
+  spriteScale: {x: 4, y: 4}
+  animations: {fileID: 9100000, guid: 9df674fafe1673349b8780f8c1c8a386, type: 2}
+  moveSpeed: 1
+  hp: 6
+  score: 8
+  radius: 0.35

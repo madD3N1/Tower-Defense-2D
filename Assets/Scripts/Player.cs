@@ -14,6 +14,7 @@ namespace SpaceShooter
         /// Кол-во жизней.
         /// </summary>
         [SerializeField] private int m_NumLives;
+        public int NumLives => m_NumLives;
 
         /// <summary>
         /// Корабль, которым управляет Игрок.
@@ -90,6 +91,16 @@ namespace SpaceShooter
         }
 
         #endregion
+
+        protected void TakeDamage(int damage)
+        {
+            m_NumLives -= damage;
+
+            if(m_NumLives <= 0)
+            {
+                LevelSequenceController.Instance?.FinishCurrentLevel(false);
+            }
+        }
 
         #region Score
 
