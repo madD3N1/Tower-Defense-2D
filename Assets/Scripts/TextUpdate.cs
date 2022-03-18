@@ -15,17 +15,17 @@ namespace TowerDefense
 
         private Text m_Text;
 
-        private void Awake()
+        private void Start()
         {
             m_Text = GetComponent<Text>();
 
             switch(source)
             {
                 case UpdateSource.Gold:
-                    TDPlayer.OnGoldUpdate += UpdateText;
+                    TDPlayer.GoldUpdateSubsribe(UpdateText);
                     break;
                 case UpdateSource.Life:
-                    TDPlayer.OnLifeUpdate += UpdateText;
+                    TDPlayer.LifeUpdateSubsribe(UpdateText);
                     break;
             }
         }
