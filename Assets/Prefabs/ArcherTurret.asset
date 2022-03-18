@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc362c14859b4bc44b6bb492d7c58e48, type: 3}
-  m_Name: New Turret Properties
+  m_Name: ArcherTurret
   m_EditorClassIdentifier: 
   m_Mode: 0
   m_ProjectilePrefab: {fileID: 1818383574736899652, guid: 7ce65d54dc7611e48962276d16793320, type: 3}
-  m_RateOfFire: 1
+  m_RateOfFire: 0.3
   m_EnergyUsage: 0
   m_AmmoUsage: 0

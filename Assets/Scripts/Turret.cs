@@ -70,5 +70,10 @@ namespace SpaceShooter
             m_RefireTimer = 0;
             m_TurretProperties = props;
         }
+
+        public void Use(TurretProperties props)
+        {
+            m_TurretProperties = props; 
+        }
     }
 }

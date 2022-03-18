@@ -7,13 +7,20 @@ namespace TowerDefense
     {
         [SerializeField] private float m_Radius;
 
+        [SerializeField] private TowerAsset m_TowerAsset;
+
         private Turret[] turrets;
 
         private Destructible target = null;
 
         private void Start()
         {
+            m_Radius = m_TowerAsset.radius;
             turrets = GetComponentsInChildren<Turret>();
+            foreach(var turret in turrets)
+            {
+                turret.Use(m_TowerAsset.props);
+            }
         }
 
         private void Update()
@@ -50,6 +57,11 @@ namespace TowerDefense
         {
             Gizmos.color = Color.blue;
             Gizmos.DrawWireSphere(transform.position, m_Radius);
+        }
+
+        public void Use(TowerAsset towerAsset)
+        {
+            m_TowerAsset = towerAsset;
         }
     }
 }

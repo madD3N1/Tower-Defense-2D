@@ -15,3 +15,5 @@ MonoBehaviour:
   goldCost: 10
   sprite: {fileID: 21300000, guid: 0d1dc428e29b59d4da665429794be749, type: 3}
   GUISprite: {fileID: 21300000, guid: ef25b92a8e4b2644b8420de820e6c11f, type: 3}
+  props: {fileID: 11400000, guid: b21d64c1c31fa6d4ebd501dad4fa3756, type: 2}
+  radius: 4
