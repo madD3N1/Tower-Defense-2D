@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 
@@ -15,6 +16,8 @@ namespace SpaceShooter
         /// </summary>
         [SerializeField] private int m_NumLives;
         public int NumLives => m_NumLives;
+
+        public event Action OnPlayerDead;
 
         /// <summary>
         /// Корабль, которым управляет Игрок.
@@ -78,16 +81,16 @@ namespace SpaceShooter
         /// </summary>
         private void Respawn()
         {
-            if (LevelSequenceController.PlayerShip != null)
-            {
-                var newPlayerShip = Instantiate(LevelSequenceController.PlayerShip);
+            //if (LevelSequenceController.PlayerShip != null)
+            //{
+            //    var newPlayerShip = Instantiate(LevelSequenceController.PlayerShip);
 
-                m_Ship = newPlayerShip.GetComponent<SpaceShip>();
-                m_Ship.EventOnDeath.AddListener(OnShipDeath);
+            //    m_Ship = newPlayerShip.GetComponent<SpaceShip>();
+            //    m_Ship.EventOnDeath.AddListener(OnShipDeath);
 
-                //m_CameraController.SetTarget(m_Ship.transform);
-                //m_MovementController.SetTargetShip(m_Ship);
-            }
+            //    m_CameraController.SetTarget(m_Ship.transform);
+            //    m_MovementController.SetTargetShip(m_Ship);
+            //}
         }
 
         #endregion
@@ -98,7 +101,8 @@ namespace SpaceShooter
 
             if(m_NumLives <= 0)
             {
-                LevelSequenceController.Instance?.FinishCurrentLevel(false);
+                m_NumLives = 0;
+                OnPlayerDead?.Invoke();
             }
         }
 

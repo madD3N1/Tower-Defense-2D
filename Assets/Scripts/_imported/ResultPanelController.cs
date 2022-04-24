@@ -31,11 +31,21 @@ namespace SpaceShooter
 
             m_Result.text = success ? "Win" : "Lose";
             m_ButtonNextText.text = success ? "Next" : "Restart";
-            m_Kills.text = $"Kills: {levelResult.numKills}";
-            m_Score.text = $"Score: {levelResult.score}";
-            m_Time.text = $"Time: {levelResult.time}";
+            //m_Kills.text = $"Kills: {levelResult.numKills}";
+            //m_Score.text = $"Score: {levelResult.score}";
+            //m_Time.text = $"Time: {levelResult.time}";
+        }
 
-            Time.timeScale = 0;
+        public void ShowResult(bool success)
+        {
+            gameObject.SetActive(true);
+
+            m_Success = success;
+
+            m_Result.text = success ? "Win" : "Lose";
+            m_ButtonNextText.text = success ? "Next" : "Restart";
+
+            //Time.timeScale = 0;
         }
 
         public void OnButtonNextAction()

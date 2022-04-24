@@ -7,7 +7,7 @@ namespace SpaceShooter
     {
         #region Properties
 
-        public static string MainMenuSceneNickname = "MainMenu";
+        public static string MainMenuSceneNickname = "LevelMap";
 
         public Episode CurrentEpisode { get; private set; }
 
@@ -40,7 +40,7 @@ namespace SpaceShooter
         public void FinishCurrentLevel(bool success)
         {
             LastLevelResult = success;
-            CalculateLevelStatistic();
+            //CalculateLevelStatistic();
 
             ResultPanelController.Instance?.ShowResult(LevelStatistics, LastLevelResult);
         }
@@ -71,9 +71,9 @@ namespace SpaceShooter
             LevelStatistics.time = (int)LevelController.Instance.LevelTime;
             LevelStatistics.numKills = Player.Instance.NumKills;
 
-            GlobalPlayerStatistics.Instance?.AddScore(LevelStatistics.score);
-            GlobalPlayerStatistics.Instance?.AddKills(LevelStatistics.numKills);
-            GlobalPlayerStatistics.Instance?.AddTime(LevelStatistics.time);
+            //GlobalPlayerStatistics.Instance?.AddScore(LevelStatistics.score);
+            //GlobalPlayerStatistics.Instance?.AddKills(LevelStatistics.numKills);
+            //GlobalPlayerStatistics.Instance?.AddTime(LevelStatistics.time);
         }
     }
 }

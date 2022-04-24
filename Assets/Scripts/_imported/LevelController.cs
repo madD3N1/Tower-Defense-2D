@@ -12,7 +12,7 @@ namespace SpaceShooter
     {
         [HideInInspector] public int ReferenceTime;
 
-        [SerializeField] private UnityEvent m_EventLevelCompleted;
+        [SerializeField] protected UnityEvent m_EventLevelCompleted;
 
         private ILevelCondition[] m_Conditions;
 
@@ -21,7 +21,7 @@ namespace SpaceShooter
         private float m_LevelTime;
         public float LevelTime => m_LevelTime;
 
-        private void Start()
+        protected void Start()
         {
             m_Conditions = GetComponentsInChildren<ILevelCondition>();
         }

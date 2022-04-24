@@ -12,8 +12,6 @@ namespace TowerDefense
 
         public Sprite GUISprite;
 
-        // TODO: добавить настройки для турели башни.
-
         public TurretProperties props;
 
         public float radius;

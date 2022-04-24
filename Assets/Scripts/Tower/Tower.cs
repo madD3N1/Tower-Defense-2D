@@ -28,6 +28,8 @@ namespace TowerDefense
             if(target)
             {
                 Vector2 targetVector = target.transform.position - transform.position;
+                // TODO: попробовать так:
+                //Vector2 targetVector = target.transform.position;
 
                 if (targetVector.magnitude <= m_Radius)
                 {
