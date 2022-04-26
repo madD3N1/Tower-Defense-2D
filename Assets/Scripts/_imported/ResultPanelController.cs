@@ -29,7 +29,7 @@ namespace SpaceShooter
 
             m_Success = success;
 
-            m_Result.text = success ? "Win" : "Lose";
+            m_Result.text = success ? "Win!" : "Lose";
             m_ButtonNextText.text = success ? "Next" : "Restart";
             //m_Kills.text = $"Kills: {levelResult.numKills}";
             //m_Score.text = $"Score: {levelResult.score}";
@@ -42,7 +42,7 @@ namespace SpaceShooter
 
             m_Success = success;
 
-            m_Result.text = success ? "Win" : "Lose";
+            m_Result.text = success ? "Win!" : "Lose";
             m_ButtonNextText.text = success ? "Next" : "Restart";
 
             //Time.timeScale = 0;

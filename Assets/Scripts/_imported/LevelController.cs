@@ -10,7 +10,8 @@ namespace SpaceShooter
 
     public class LevelController : SingletonBase<LevelController>
     {
-        [HideInInspector] public int ReferenceTime;
+        [SerializeField] protected float m_ReferenceTime;
+        public float ReferenceTime => m_ReferenceTime;
 
         [SerializeField] protected UnityEvent m_EventLevelCompleted;
 
